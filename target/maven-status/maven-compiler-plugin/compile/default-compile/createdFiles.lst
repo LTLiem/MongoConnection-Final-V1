@@ -1,0 +1,6 @@
+ups\mongo\service\impl\ReconInputServiceImpl.class
+ups\mongodb\App.class
+ups\mongo\configuration\SpringMongoConfig.class
+ups\mongo\repository\ReconInputRepository.class
+ups\mongo\model\ReconInput.class
+ups\mongo\service\ReconInputService.class
