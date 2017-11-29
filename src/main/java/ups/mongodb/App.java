@@ -30,9 +30,11 @@ import ups.mongo.excelutil.CsvInputUtil;
 import ups.mongo.excelutil.ExcelUtilsIn;
 import ups.mongo.excelutil.ExcelUtilsOut;
 import ups.mongo.fileprocess.MongoDataUtil;
+import ups.mongo.model.AutoTagOutput;
 import ups.mongo.model.ReconInputMx2;
 import ups.mongo.model.ReconInputMx3;
 import ups.mongo.model.ReconOutput;
+import ups.mongo.service.AutoTagService;
 import ups.mongo.service.ReconInputServiceMx2;
 import ups.mongo.service.ReconInputServiceMx3;
 import ups.mongo.service.ReconOutputService;
@@ -74,15 +76,15 @@ public class App {
 		// System.out.println(MongoDataUtilMx2.getByReportIdAndReportingDateMx2("R320",
 		// "2017 Sep 20").get(0).getRows().size());
 
-		@SuppressWarnings("rawtypes")
-		MongoDataUtil service = new MongoDataUtil(ReconOutputService.class);
+		//@SuppressWarnings("rawtypes")
+		//MongoDataUtil service = new MongoDataUtil(ReconOutputService.class);
 		/*ReconInputMx2 reconInputMx2 = new ReconInputMx2("R315", "Prorata", "2017 Sep 30", new Date(), CsvInputUtil.getHeaders("FXD10_DYN_MX2.csv", ';'),
 				CsvInputUtil.getDataRows("FXD10_DYN_MX2.csv", ';'));
 		service.saveToMongoDB(reconInputMx2);*/
 		
-		List<ReconOutput> reconOutputList = new ArrayList<ReconOutput>();
-		reconOutputList = service.getByReportId("FXD10");
-		System.out.println(reconOutputList.get(0).getReportName());
+		//List<ReconOutput> reconOutputList = new ArrayList<ReconOutput>();
+		//reconOutputList = service.getByReportId("FXD10");
+		//System.out.println(reconOutputList.get(0).getReportName());
 		
 		//List<ReconInputMx2> result = service.getByReportId("R315");
 		//System.out.println(result.get(0).getReportName());
@@ -194,5 +196,16 @@ public class App {
 		}
 		*/
 		
+		MongoDataUtil service = new MongoDataUtil(AutoTagService.class);
+		
+		//Save and object to mongondb
+/*		AutoTagOutput ao = new AutoTagOutput();
+		ao.setReportId("R111");
+		ao.setReportName("Fx Sale");
+		//... more data
+		service.saveToMongoDB(ao);*/
+		
+		//Try to load the object just saved
+		System.out.println(service.getByReportId("R111").size());
 	}
 }
