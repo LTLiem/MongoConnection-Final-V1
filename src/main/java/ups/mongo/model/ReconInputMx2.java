@@ -9,37 +9,36 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-
 @Document(collection = "ReconInputMx2")
 public class ReconInputMx2 {
 
-	@Id	
+	@Id
 	private ObjectId id;
-	
-	@Field(value="report_id")
+
+	@Field(value = "report_id")
 	@Indexed
 	private String reportId;
-	
-	@Field(value="report_name")
+
+	@Field(value = "report_name")
 	private String reportName;
-	
+
 	private String source = "Mx2";
-	
-	@Field(value="reporting_date")
+
+	@Field(value = "reporting_date")
 	private String reportingDate;
-	
-	@Field(value="importing_time")
+
+	@Field(value = "importing_time")
 	private Date importingTime;
-	
+
 	private String headers;
-	
+
 	private List<String> rows;
 
 	protected ReconInputMx2() {
 	}
-	
-	public ReconInputMx2(String reportId, String reportName, String reportingDate, Date importingTime,
-			String headers, List<String> rows) {
+
+	public ReconInputMx2(String reportId, String reportName, String reportingDate, Date importingTime, String headers,
+			List<String> rows) {
 		super();
 		this.reportId = reportId;
 		this.reportName = reportName;
@@ -112,5 +111,5 @@ public class ReconInputMx2 {
 	public void setRows(List<String> rows) {
 		this.rows = rows;
 	}
-	
+
 }

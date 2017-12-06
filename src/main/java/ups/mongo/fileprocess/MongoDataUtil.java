@@ -7,32 +7,32 @@ import ups.mongo.configuration.SpringMongoConfig;
 import ups.mongo.service.ReconService;
 
 public class MongoDataUtil<T extends Object> {
-	
+
 	private ApplicationContext ctx;
 	ReconService<T> reconInputService;
-	
+
 	@SuppressWarnings("unchecked")
 	public MongoDataUtil(Class<T> domainClass) {
 		reconInputService = (ReconService<T>) this.getApplicationContext().getBean(domainClass);
 	}
-	
+
 	protected ApplicationContext getApplicationContext() {
-		if(ctx == null) {
-			 ctx = new AnnotationConfigApplicationContext(SpringMongoConfig.class);
+		if (ctx == null) {
+			ctx = new AnnotationConfigApplicationContext(SpringMongoConfig.class);
 		}
 		return ctx;
 	}
-	
+
 	public List<T> getByReportId(String reportId) {
 		return this.reconInputService.getByReportId(reportId);
-		
+
 	}
-	
-	public List<T> getByReportIdAndReportingDate(String reportId, String reportingDate) {		
+
+	public List<T> getByReportIdAndReportingDate(String reportId, String reportingDate) {
 		return this.reconInputService.getByReportIdAndReportingDate(reportId, reportingDate);
 	}
-	
-	public void saveToMongoDB(T t) {		
+
+	public void saveToMongoDB(T t) {
 		this.reconInputService.saveToMongoDB(t);
 	}
 }

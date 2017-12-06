@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import ups.mongo.model.AutoTagOutput;
 import ups.mongo.repository.AutoTagRepository;
 
-@Repository("AutoTagRepository")
+@Repository(value = "AutoTagRepository")
 public class AutoTagRepositoryImpl extends AbstractReconRepository<AutoTagOutput> implements AutoTagRepository {
 
 }

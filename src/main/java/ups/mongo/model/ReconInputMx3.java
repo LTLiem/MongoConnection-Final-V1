@@ -12,33 +12,33 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "ReconInputMx3")
 public class ReconInputMx3 {
 
-	@Id	
+	@Id
 	private ObjectId id;
-	
-	@Field(value="report_id")
+
+	@Field(value = "report_id")
 	@Indexed
 	private String reportId;
-	
-	@Field(value="report_name")
+
+	@Field(value = "report_name")
 	private String reportName;
-	
+
 	private String source = "Mx3";
-	
-	@Field(value="reporting_date")
+
+	@Field(value = "reporting_date")
 	private String reportingDate;
-	
-	@Field(value="importing_time")
+
+	@Field(value = "importing_time")
 	private Date importingTime;
-	
+
 	private String headers;
-	
+
 	private List<String> rows;
 
 	protected ReconInputMx3() {
 	}
-	
-	public ReconInputMx3(String reportId, String reportName, String reportingDate, Date importingTime,
-			String headers, List<String> rows) {
+
+	public ReconInputMx3(String reportId, String reportName, String reportingDate, Date importingTime, String headers,
+			List<String> rows) {
 		super();
 		this.reportId = reportId;
 		this.reportName = reportName;

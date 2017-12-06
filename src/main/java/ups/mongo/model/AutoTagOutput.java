@@ -8,31 +8,30 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection="AutoTagOutput")
+@Document(collection = "AutoTagOutput")
 public class AutoTagOutput {
-	
-	@Id	
+
+	@Id
 	private ObjectId id;
-	
+
 	@Field(value = "report_id")
 	@Indexed
 	private String reportId;
-	
+
 	@Field(value = "report_name")
 	private String reportName;
-	
+
 	@Field(value = "reporting_date")
 	private String reportingDate;
-	
+
 	@Field(value = "generated_date")
 	private Date generatedDate;
-	
-	
-	//The second line in the output
+
+	// The second line in the output
 	@Field(value = "headers")
 	private List<String> headers;
-	
-	//The rest
+
+	// The rest
 	@Field(value = "rows")
 	private List<String> rows;
 

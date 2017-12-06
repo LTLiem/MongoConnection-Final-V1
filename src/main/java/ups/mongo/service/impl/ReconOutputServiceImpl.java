@@ -7,9 +7,9 @@ import ups.mongo.model.ReconOutput;
 import ups.mongo.repository.ReconRepository;
 import ups.mongo.service.ReconOutputService;
 
-@Service("ReconOutputService")
+@Service(value = "ReconOutputService")
 public class ReconOutputServiceImpl extends AbstractReconService<ReconOutput> implements ReconOutputService {
-	
+
 	public ReconOutputServiceImpl(@Autowired ReconRepository<ReconOutput> reconRepository) {
 		this.reconRepository = reconRepository;
 	}

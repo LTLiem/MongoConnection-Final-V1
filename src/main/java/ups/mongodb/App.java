@@ -31,10 +31,12 @@ import ups.mongo.excelutil.ExcelUtilsIn;
 import ups.mongo.excelutil.ExcelUtilsOut;
 import ups.mongo.fileprocess.MongoDataUtil;
 import ups.mongo.model.AutoTagOutput;
+import ups.mongo.model.ClusterOutput;
 import ups.mongo.model.ReconInputMx2;
 import ups.mongo.model.ReconInputMx3;
 import ups.mongo.model.ReconOutput;
 import ups.mongo.service.AutoTagService;
+import ups.mongo.service.ClusterOutputService;
 import ups.mongo.service.ReconInputServiceMx2;
 import ups.mongo.service.ReconInputServiceMx3;
 import ups.mongo.service.ReconOutputService;
@@ -196,7 +198,14 @@ public class App {
 		}
 		*/
 		
-		MongoDataUtil service = new MongoDataUtil(AutoTagService.class);
+		MongoDataUtil service = new MongoDataUtil(ClusterOutputService.class);
+		
+		ClusterOutput output = new ClusterOutput();
+		
+		output.setReportId("R330");
+		output.setReportName("Trading Today");
+		//Set value for the rest of properties ...
+		
 		
 		//Save and object to mongondb
 /*		AutoTagOutput ao = new AutoTagOutput();
@@ -205,7 +214,8 @@ public class App {
 		//... more data
 		service.saveToMongoDB(ao);*/
 		
+		service.saveToMongoDB(output);
 		//Try to load the object just saved
-		System.out.println(service.getByReportId("R111").size());
+		//System.out.println(service.getByReportId("R111").size());
 	}
 }

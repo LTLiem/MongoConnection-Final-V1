@@ -11,43 +11,43 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "ReconOutput")
 public class ReconOutput {
-	
-	@Id	
+
+	@Id
 	private ObjectId id;
-	
+
 	@Field(value = "report_id")
 	@Indexed
 	private String reportId;
-	
+
 	@Field(value = "report_name")
 	private String reportName;
-	
+
 	@Field(value = "reporting_date")
 	private String reportingDate;
-	
+
 	@Field(value = "recon_time")
 	private Date reconTime;
-	
+
 	@Field(value = "column_difference")
 	private List<String> columnDiff;
-	
+
 	@Field(value = "missing_mx2")
 	private List<String> missingMx2;
-	
+
 	@Field(value = "missing_mx3")
 	private List<String> missingMx3;
-	
+
 	@Field(value = "keys")
 	private List<String> keys;
-	
+
 	@Field(value = "headers")
 	private List<String> headers;
-	
+
 	@Field(value = "rows")
 	private List<String> rows;
-	
+
 	public ReconOutput() {
-		
+
 	}
 
 	public ReconOutput(String reportId, String reportName, String reportingDate, Date reconTime,

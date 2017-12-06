@@ -14,12 +14,12 @@ import com.mongodb.MongoClient;
 @ComponentScan(basePackages = "ups.mongo")
 @EnableMongoRepositories({ "ups.mongo.repository" })
 public class SpringMongoConfig {
-	
+
 	@Bean
 	public MongoDbFactory mongoDbFactory() throws Exception {
 		return new SimpleMongoDbFactory(new MongoClient("127.0.0.1"), "ReconInput");
 	}
-	
+
 	@Bean
 	public MongoTemplate mongoTemplate() throws Exception {
 
