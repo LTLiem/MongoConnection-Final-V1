@@ -1,0 +1,7 @@
+
+*.MF
+*.class
+target/classes/META-INF/MANIFEST.MF
+target/classes/META-INF/MANIFEST.MF
+*.class
+target/classes/META-INF/maven/ups.mongodb/MongoConnection-Final/pom.properties
