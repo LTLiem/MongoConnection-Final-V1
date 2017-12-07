@@ -15,6 +15,11 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
+/**
+ * 
+ * @author Liem Le
+ * Sep-2017
+ */
 public class ExcelUtilsOut extends ExcelUtilsIn {
 	
 	public static List<String> getColumnDifference(String fileName) {

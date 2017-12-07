@@ -16,10 +16,20 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
+/**
+ * 
+ * @author Liem Le
+ * Sep-2017
+ */
 public class ExcelUtilsIn {
 
 	protected static final Character SPLITTER = '!';
 
+	/**	 
+	 * @param fileName
+	 * @param sheet
+	 * @return The header of excel's sheet
+	 */
 	public static List<String> getHeaders(String fileName, int sheet) {
 
 		FileInputStream excelFile = null;
@@ -69,6 +79,14 @@ public class ExcelUtilsIn {
 		return result.substring(0, result.length() - 1);
 	}
 
+	/**
+	 * For input file, it begin with 0. And it's two for the output (The 1st sheet is Column In Value Difference 
+	 * and the 2nd sheet is Missing Key)
+	 * 
+	 * @param fileName
+	 * @param sheetBegin
+	 * @return Data rows in excel file
+	 */
 	public static List<String> getDataRows(String fileName, int sheetBegin) {
 
 		FileInputStream excelFile = null;
