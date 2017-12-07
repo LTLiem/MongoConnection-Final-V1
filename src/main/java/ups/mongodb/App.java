@@ -29,6 +29,7 @@ import ups.mongo.configuration.SpringMongoConfig;
 import ups.mongo.excelutil.CsvInputUtil;
 import ups.mongo.excelutil.ExcelUtilsIn;
 import ups.mongo.excelutil.ExcelUtilsOut;
+import ups.mongo.excelutil.OutputToExcelUtils;
 import ups.mongo.fileprocess.MongoDataUtil;
 import ups.mongo.model.AutoTagOutput;
 import ups.mongo.model.ClusterOutput;
@@ -200,10 +201,15 @@ public class App {
 		
 		MongoDataUtil service = new MongoDataUtil(ClusterOutputService.class);
 		
-		ClusterOutput output = new ClusterOutput();
+		List<ClusterOutput> output = service.getByReportId("R330");
 		
-		output.setReportId("R330");
-		output.setReportName("Trading Today");
+		System.out.println(output.get(0).getTrades().get(0).length());
+		
+		
+		OutputToExcelUtils.clusterOutToExcel(output.get(0), "MyFirstExcel.xlsx");
+		
+		//output.setReportId("R331");
+		//output.setReportName("Trading Today");
 		//Set value for the rest of properties ...
 		
 		
@@ -214,7 +220,7 @@ public class App {
 		//... more data
 		service.saveToMongoDB(ao);*/
 		
-		service.saveToMongoDB(output);
+		//service.saveToMongoDB(output);
 		//Try to load the object just saved
 		//System.out.println(service.getByReportId("R111").size());
 	}
